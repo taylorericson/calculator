@@ -10,7 +10,7 @@ body {
 .container  {
     display: flex;
     flex-direction: column;
-    border: 6px solid rgb(234, 194, 114);
+    border: 6px solid #FFD79A;
     height: 600px;
     width: 350px;
     background-color: #fff;
@@ -23,23 +23,27 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
-    border: 1px solid black;
+    border: 2px solid #76664C;
     height: 100px;
-    margin-top: 40px;
+    margin-top: 60px;
     margin-left: 20px;
     margin-right: 20px;
     border-radius: 10px;
     background-image: linear-gradient(to left,#FFEBCD, #FFCC81);
     font-family: 'Rubik', sans-serif;
-    font-size: 25px;
+    font-size: 20px;
+}
+
+.current-screen {
+    font-size: 35px;
 }
 
 .buttons {
     display: flex;
     flex-direction: column; 
-    flex: 1;
     justify-content: space-evenly;
     align-items: center;
+    flex: 1;
     font-family: 'Rubik', sans-serif;
 }
 
@@ -47,14 +51,18 @@ body {
     height: 60px;
     width: 130px;
     margin: 2px;
-    font-size: 20px;
+    font-size: 30px;
+    color: #76664C;
+    border:  1px, solid #76664C;
 }
 
 .other-row button {
     height: 60px;
     width: 60px;
     margin: 2px;
-    font-size: 20px;
+    font-size: 30px;
+    color: #76664C;
+    border:  1px, solid #76664C;
 }
 
 .number {
@@ -62,7 +70,7 @@ body {
     border-radius: 10px;
 }
 
-.operator {
+.operator, .decimal, .change-sign, .equals, .power, .squared, .power {
     background-color: #FFEBCD;
     border-radius: 10px;
 }
@@ -72,6 +80,10 @@ body {
 }
 
 .operator:hover {
+    background-color: #FFD79A;
+}
+
+.decimal:hover, .squared:hover, .power:hover, .change-sign:hover {
     background-color: #FFD79A;
 }
 
