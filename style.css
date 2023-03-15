@@ -68,6 +68,29 @@ body {
     transform: scale(1.05);
 }
 
+.first-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.first-row button {
+    height: 60px; 
+    width: 130px;
+    margin: 4px;
+    font-size: 30px;
+    background-color:  #FFFFE9;
+    border-radius: 10px;
+    color: #76664C;
+    border:  1px, solid #76664C;
+    box-shadow: #76664C 0 0px 5px 2px;
+}
+
+.first-row button:hover {
+    background-color: #FFEEA9;
+    transform: scale(1.05);
+}
+
 .number {
     background-color: #fff;
     border-radius: 10px;
@@ -90,20 +113,6 @@ body {
 
 .decimal:hover, .squared:hover, .power:hover, .change-sign:hover {
     background-color: #FFD79A;
-}
-
-.clear {
-    background-color:  #FFFFE9;
-    border-radius: 10px;
-}
-
-.clear:hover {
-    background-color: #FFEEA9;
-}
-
-.delete {
-    background-color: #FFFFE9;
-    border-radius: 10px;
 }
 
 .delete:hover {

@@ -4,10 +4,9 @@ let currentValue = '';
 
 document.addEventListener("DOMContentLoaded", function() {
     let clear = document.querySelector(".clear");
-    let equals = document.querySelector(".equals");
     let deleteLast = document.querySelector(".delete");
+    let equals = document.querySelector(".equals");
     let decimal = document.querySelector(".decimal");
-    let changeSign = document.querySelector(".change-sign");
     
     let numbers = document.querySelectorAll(".number");
     let operators = document.querySelectorAll(".operator");
@@ -17,17 +16,52 @@ document.addEventListener("DOMContentLoaded", function() {
 
     numbers.forEach((number) => number.addEventListener('click', (e) => {
         handleNumber(e.target.textContent);
+        currentScreen.textContent = currentValue;
     }))
 
-    operators.forEach((operator) => operator.addEventListener('click', (e) => {
+    operators.forEach((op) => op.addEventListener('click', (e) => {
         handleOperator(e.target.textContent);
+        previousScreen.textContent = `${previousValue} ${operator}`;
+        currentScreen.textContent = currentValue;
     }))
+
+    clear.addEventListener('click', () => {
+        currentValue = '';
+        previousValue = '';
+        operator = '';
+        currentScreen.textContent = '';
+        previousScreen.textContent = '';
+    })
 })
 
     function handleNumber(num){
-        console.log(num);
+        if(currentValue.length <= 7) {
+            currentValue += num;
+        }
     }
 
-    function handleOperator(operator) {
-        console.log(operator);
+    function handleOperator(op) {
+        operator = op;
+        previousValue = currentValue;
+        currentValue = '';
+    }
+
+    function add(a,b) {
+        return a + b;
+    }
+
+    function subtract(a,b) {
+        return a - b;
+    }
+
+    function multiply(a,b) {
+        return a * b;
+    }
+
+    function divide(a,b) {
+        if(b === 0) {
+            return "ERROR";
+        }else {
+            return a / b;
+        }
     }
