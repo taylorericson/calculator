@@ -1,5 +1,6 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100vw;
@@ -31,11 +32,17 @@ body {
     border-radius: 10px;
     background-image: linear-gradient(to left,#FFEBCD, #FFCC81);
     font-family: 'Rubik', sans-serif;
-    font-size: 20px;
+    box-shadow: #76664C 0 0px 5px 2px;
 }
 
 .current-screen {
     font-size: 35px;
+    margin-right: 5px;
+}
+
+.previous-screen {
+    font-size: 20px;
+    margin-right: 5px;
 }
 
 .buttons {
@@ -47,22 +54,18 @@ body {
     font-family: 'Rubik', sans-serif;
 }
 
-.first-row button {
-    height: 60px;
-    width: 130px;
-    margin: 2px;
-    font-size: 30px;
-    color: #76664C;
-    border:  1px, solid #76664C;
-}
-
-.other-row button {
+.btn-row button {
     height: 60px;
     width: 60px;
     margin: 2px;
     font-size: 30px;
     color: #76664C;
     border:  1px, solid #76664C;
+    box-shadow: #76664C 0 0px 5px 2px;
+}
+
+.btn-row button:hover {
+    transform: scale(1.05);
 }
 
 .number {
@@ -77,10 +80,12 @@ body {
 
 .number:hover {
     background-color: #FFEBCD;
+    transform: scale(1.05);
 }
 
 .operator:hover {
     background-color: #FFD79A;
+    transform: scale(1.05);
 }
 
 .decimal:hover, .squared:hover, .power:hover, .change-sign:hover {
@@ -104,4 +109,24 @@ body {
 .delete:hover {
     background-color: #FFEEA9;
 }
+
+.footer {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 36px;
+}
+
+.fa-github {
+    color: black;
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out;
+}
+.fa-github:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+  }
 
