@@ -80,7 +80,12 @@ document.addEventListener("DOMContentLoaded", function() {
         currentValue = Number(currentValue);
 
         if(operator === '/') {
-            previousValue /= currentValue;
+            if(currentValue != 0) {
+                previousValue /= currentValue;
+            } else {
+                previousValue = "Error";
+            }
+            
         } else if(operator === 'x') {
             previousValue *= currentValue;
         } else if(operator === '-') {
@@ -88,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
         } else if(operator === '+') {
             previousValue += currentValue;
         } 
+        
         previousValue = round(previousValue);
         previousValue = previousValue.toString();
         currentValue = previousValue.toString();
@@ -95,24 +101,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function round(num) {
         return Math.round(num * 1000) / 1000;
-    }
-
-    function add(a, b) {
-        return a + b;
-    }
-
-    function subtract(a, b) {
-        return a - b;
-    }
-
-    function multiply(a, b) {
-        return a * b;
-    }
-
-    function divide(a, b) {
-        if(b === 0) {
-            return "ERROR";
-        }else {
-            return a / b;
-        }
     }
