@@ -32,6 +32,29 @@ document.addEventListener("DOMContentLoaded", function() {
         currentScreen.textContent = '';
         previousScreen.textContent = '';
     })
+
+    equals.addEventListener('click', () => {
+        if(currentValue != '' && previousValue != '') {
+            operate();
+        
+            previousScreen.textContent = '';
+            if(previousValue.length <= 14) {
+                currentScreen.textContent = previousValue;
+            } else {
+                currentScreen.textContent = previousValue.slice(0,11) + "...";
+            }
+        }           
+    })
+
+    deleteLast.addEventListener('click', () => {
+        currentValue = currentValue.slice(0,-1);
+        currentScreen.textContent = currentValue;
+    })
+
+    decimal.addEventListener('click', () => {
+        handleDecimal();
+        currentScreen.textContent = currentValue;
+    })
 })
 
     function handleNumber(num){
@@ -46,19 +69,47 @@ document.addEventListener("DOMContentLoaded", function() {
         currentValue = '';
     }
 
-    function add(a,b) {
+    function handleDecimal() {
+        if(!currentValue.includes('.')) {
+            currentValue += ".";
+        }
+    }
+
+    function operate() {
+        previousValue = Number(previousValue);
+        currentValue = Number(currentValue);
+
+        if(operator === '/') {
+            previousValue /= currentValue;
+        } else if(operator === 'x') {
+            previousValue *= currentValue;
+        } else if(operator === '-') {
+            previousValue -= currentValue;
+        } else if(operator === '+') {
+            previousValue += currentValue;
+        } 
+        previousValue = round(previousValue);
+        previousValue = previousValue.toString();
+        currentValue = previousValue.toString();
+    }
+
+    function round(num) {
+        return Math.round(num * 1000) / 1000;
+    }
+
+    function add(a, b) {
         return a + b;
     }
 
-    function subtract(a,b) {
+    function subtract(a, b) {
         return a - b;
     }
 
-    function multiply(a,b) {
+    function multiply(a, b) {
         return a * b;
     }
 
-    function divide(a,b) {
+    function divide(a, b) {
         if(b === 0) {
             return "ERROR";
         }else {
